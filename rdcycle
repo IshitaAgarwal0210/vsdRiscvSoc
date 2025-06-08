@@ -1,0 +1,5 @@
+static inline uint64_t rdcycle64(void) {
+    uint64_t cycles;
+    asm volatile ("csrr %0, cycle" : "=r"(cycles));  // RV64 reads full 64 bits
+    return cycles;
+}
